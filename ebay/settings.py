@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'category',
     'accounts',
     'store',
+    'carts',
 
 
     'django.contrib.sites',
@@ -76,6 +77,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',  
                 'category.context_processors.menu_links',
+                'carts.context_processors.counter',
             ],
         },
     },
