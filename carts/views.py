@@ -20,6 +20,7 @@ def cart(request, total=0, quantity=0, cart_item=None):
 	try:
 		taxe = 0
 		grand_total = 0
+		cart_items = None
 		
 		cart = Cart.objects.get(cart_id=_cart_id(request))
 		cart_items = CartItem.objects.filter( cart=cart ,is_active=True)

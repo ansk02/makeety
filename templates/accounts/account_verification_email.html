@@ -1,0 +1,10 @@
+{% autoescape off %}
+
+Bonjour {{user.last_name}},
+
+Veuillez cliquer sur ce lien pour finaliser votre inscription.
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+Si vous n'êtes pas à l'origine de cette action, veuillez ignorer ce message.
+
+{% endautoescape %}

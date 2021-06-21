@@ -53,7 +53,7 @@ class Account(AbstractBaseUser):
 	username = models.CharField('Pseudo', max_length=25, unique=True)
 	email = models.EmailField(max_length=200, unique=True)
 	city = models.CharField('Ville', max_length=200, blank=True)
-	phone_number = models.CharField('Téléphone', max_length=60, unique=True)
+	phone_number = models.CharField('Téléphone', max_length=60)
 
 
 	date_joined = models.DateTimeField('Creation', auto_now_add=True)

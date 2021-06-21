@@ -10,7 +10,7 @@
 		<li class="nav-item"><a class="nav-link" href="#">Payment</a></li>
     </ul>
     <ul class="navbar-nav">
-		<li  class="nav-item"><a href="#" class="nav-link">Contact +212624232775 </a></li>
+		<li  class="nav-item"><a href="#" class="nav-link"><i class="fa fa-phone"></i>&nbsp; Contact</a></li>
 		<li class="nav-item dropdown">
 		 	<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> Français </a>
 		    <ul class="dropdown-menu dropdown-menu-right" style="max-width: 100px;">
@@ -46,16 +46,34 @@
 	<div class="col-lg-4 col-sm-6 col-12">
 		<div class="widgets-wrap float-lg-right">
 
+			{% if user.id is None %}
+
 			<div class="widget-header icontext">
 			<!-- col.// 	<a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>  -->
 				<div class="text">
 					<span class="text-muted">Bienvenue!</span>
 					<div> 
-						<a href="#">Connection</a> | 
-						<a href="#">Inscription</a>
+						<a href="{% url 'login' %}">Connexion</a> | 
+						<a href="{% url 'register' %}">Inscription</a>
 					</div>
 				</div>
 			</div>
+				
+			{% else %}
+				
+
+			<div class="widget-header icontext">
+			<!-- col.// 	<a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>  -->
+				<div class="text">
+					<span class="text-muted">Bienvenue {{ user.first_name }}!</span>
+					<div> 
+						<a href="{% url 'logout' %}">Déconnexion</a> | 
+						<a href="{% url 'dashboard' %}">Profil</a>
+					</div>
+				</div>
+			</div>
+
+			{% endif %}
 			
 			<div class="widget-header  mr-3">
 				<a href="{% url 'cart' %}" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
