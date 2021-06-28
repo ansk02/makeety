@@ -25,15 +25,27 @@
       {% include "includes/alerts.html" %}
 
 
-      <form action="{% url 'login' %}" method="POST">
+      <form action="{% url 'dashboard' %}" method="POST">
         {% csrf_token %}
+
           <div class="form-group">
-			 <input type="email" class="form-control" placeholder="Adresse Email" name="email"  required>
+            <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+         </div>
+        <input name="email" class="form-control" placeholder="Adresse Email" type="text" required="required">
+      </div> <!-- input-group.// -->
           </div> <!-- form-group// -->
+
           <div class="form-group">
-			<input type="password" class="form-control" placeholder="Mot de passe" name="password" required>
+            <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+         </div>
+        <input name="password" class="form-control" placeholder="Mot de passe" type="password" required="required">
+      </div> <!-- input-group.// -->
           </div> <!-- form-group// -->
-          
+
           <div class="form-group">
           	<a href="{% url 'forgotpassword' %}" class="float-right">Mot de passe oublié?</a> 
            

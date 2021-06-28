@@ -111,7 +111,7 @@
 			</dl>
 			<dl class="dlist-align">
 			  <dt>Taxe</dt>
-			  <dd class="text-right">{{ taxe|floatformat:2 }}</dd>
+			  <dd class="text-right">{{ tax|floatformat:2 }}</dd>
 			</dl>
 			<dl class="dlist-align">
 			  <dt>Total TTC</dt>
@@ -121,7 +121,7 @@
 			<p class="text-center mb-3">
 				<img src="{% static './images/misc/payments.png' %}" height="26">
 			</p>
-			<a href="./place-order.html" class="btn btn-primary btn-block"> Checkout </a>
+			<a href="{% url 'checkout' %}" class="btn btn-primary btn-block"> Paiement </a>
 			<a href="{% url 'store' %}" class="btn btn-light btn-block">Continuer</a>
 		</div> <!-- card-body.// -->
 		</div> <!-- card.// -->
@@ -135,14 +135,6 @@
 </div> <!-- container .//  -->
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
-
-
-
-
-
-
-
-
 
 	
 {% endblock content %}

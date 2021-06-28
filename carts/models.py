@@ -1,5 +1,7 @@
 from django.db import models
 from store.models import Product, Variation
+from accounts.models import Account
+
 
 # Create your models here.
 class Cart(models.Model):
@@ -16,6 +18,7 @@ class Cart(models.Model):
 
 
 class CartItem(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.CASCADE, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     variations = models.ManyToManyField(Variation, blank=True)
     cart    = models.ForeignKey(Cart, on_delete=models.CASCADE, null=True)
@@ -23,11 +26,12 @@ class CartItem(models.Model):
     is_active = models.BooleanField(default=True)
 
     class Meta:
-    	verbose_name = "Produit du panier"
-    	verbose_name_plural = "Produits du panier"
+        verbose_name = "Produit du panier"
+        verbose_name_plural = "Produits du panier"
 
     def sub_total(self):
         return self.product.price * self.quantity
 
     def __unicode__(self):
         return self.product
+
